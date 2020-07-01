@@ -10,12 +10,12 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.react.shell.MainReactPackage
 import com.facebook.soloader.SoLoader
 
-//import com.oblador.vectoricons.VectorIconsPackage
-//import com.reactnativecommunity.asyncstorage.AsyncStoragePackage
-//import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView
-//import com.swmansion.gesturehandler.react.RNGestureHandlerPackage
-//import com.swmansion.reanimated.ReanimatedPackage
-//import com.th3rdwave.safeareacontext.SafeAreaContextPackage
+import com.oblador.vectoricons.VectorIconsPackage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage
+import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage
+import com.swmansion.reanimated.ReanimatedPackage
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage
 
 class RNModuleActivity : Activity(), DefaultHardwareBackBtnHandler {
     private var mReactRootView: ReactRootView? = null
@@ -25,8 +25,8 @@ class RNModuleActivity : Activity(), DefaultHardwareBackBtnHandler {
         SoLoader.init(this, false)
 
         // If not, navigation.goBack() not working
-//        mReactRootView = RNGestureHandlerEnabledRootView(this)
-         mReactRootView =  ReactRootView(this);
+        mReactRootView = RNGestureHandlerEnabledRootView(this)
+//         mReactRootView =  ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(application)
                 .setCurrentActivity(this)
@@ -34,11 +34,11 @@ class RNModuleActivity : Activity(), DefaultHardwareBackBtnHandler {
                 .setJSMainModulePath("index")
                 .addPackage(MainReactPackage())
 
-//                .addPackage(ReanimatedPackage())
-//                .addPackage(VectorIconsPackage())
-//                .addPackage(RNGestureHandlerPackage())
-//                .addPackage(AsyncStoragePackage())
-//                .addPackage(SafeAreaContextPackage())
+                .addPackage(ReanimatedPackage())
+                .addPackage(VectorIconsPackage())
+                .addPackage(RNGestureHandlerPackage())
+                .addPackage(AsyncStoragePackage())
+                .addPackage(SafeAreaContextPackage())
 
                 .addPackage(TestConnectNativePackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
@@ -48,8 +48,8 @@ class RNModuleActivity : Activity(), DefaultHardwareBackBtnHandler {
         // Send message from native code
         val initialProperties = Bundle()
         initialProperties.putString("message_from_native", intent?.extras?.get("message_from_native")?.toString())
-//        (mReactRootView as RNGestureHandlerEnabledRootView).startReactApplication(mReactInstanceManager, "Demo", initialProperties)
-        (mReactRootView as ReactRootView).startReactApplication(mReactInstanceManager, "Demo", initialProperties)
+        (mReactRootView as RNGestureHandlerEnabledRootView).startReactApplication(mReactInstanceManager, "Demo", initialProperties)
+//        (mReactRootView as ReactRootView).startReactApplication(mReactInstanceManager, "Demo", initialProperties)
 
         setContentView(mReactRootView)
     }

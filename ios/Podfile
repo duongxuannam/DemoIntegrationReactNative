@@ -3,8 +3,6 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 target 'DemoIntegrateRN' do
   use_frameworks!
-
-  # Pods for DemoIntegrateRN
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -43,6 +41,5 @@ target 'DemoIntegrateRN' do
 
   use_native_modules!
 end
-use_native_modules!
 
 
